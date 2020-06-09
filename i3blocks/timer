@@ -1,0 +1,11 @@
+#!/bin/bash
+
+case $BLOCK_BUTTON in
+
+  1) rm ~/.tmp/timer ;; # right click
+  3) i3-msg exec "termite -t backgroundterminalxyz -e 'timer 25 5 25 5 25 5 25 20'" >/dev/null;; # right click
+  4) $XBACKLIGHT_SET -dec "$STEP_SIZE" ;; # scroll up
+  5) $XBACKLIGHT_SET -inc "$STEP_SIZE" ;; # scroll down, decrease
+esac
+
+date -d@$(cat ~/.tmp/timer) -u +\ %M:%S

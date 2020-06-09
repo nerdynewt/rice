@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+if [[ "$button" == "1" ]]; then
+	i3-msg exec "termite -t 'force_floating_window' -e neomutt" > /dev/null
+	exit
+fi
+
+statusa="$(mailsync)"
+echo "$statusa" | grep -q 'No internet connection\|No new mail' >/dev/null && exit
+# echo "$statusa" | grep -q 'No internet connection\|No new mail' >/dev/null && echo "" && exit
+echo  $(echo "$statusa" | grep "to the database" | cut -d ' ' -f2)
+
+
+

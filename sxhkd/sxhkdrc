@@ -1,0 +1,60 @@
+super+shift+Return
+	termite
+
+super+Return
+	termite
+
+super+d
+	rofi -show drun -show-icons
+
+
+mod1+w
+	jumpapp -f brave
+
+mod1+e
+	jumpapp -f nautilus
+
+mod1+v
+	jumpapp -f mpv
+
+mod1+a
+	jumpapp -f typora
+
+mod1+s
+	jumpapp -f zathura
+
+mod1+z
+	jumpapp -f termite
+
+
+super+s
+	qs
+
+XF86MonBrightnessUp
+	brightness up
+
+
+XF86MonBrightnessDown
+	brightness down
+
+
+XF86MonAudioRaiseVolume
+	volume up
+
+
+XF86MonAudioLowerVolume
+	volume down
+
+
+XF86MonAudioMute
+	volume mute
+
+mod4+shift+y
+ 	mpv $(xclip -o) & notify-send "Playing Youtube Video" || notify-send "Not a valid link"
+
+mod4+w
+	rofi -show window -show-icons -lines 15 -auto-select && { xinput set-prop 10 'Device Enabled' 0 ; sleep 0.5 ; xinput set-prop 10 'Device Enabled' 1; }
+
+mod4+space
+	termite  --name="fuzsearch" -e "search-fzf" --icon="plasma-search"
+

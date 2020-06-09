@@ -1,0 +1,14 @@
+[Unit]
+Description=Compton compositor
+Documentation=man:compton
+PartOf=graphical-session.target
+
+[Service]
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/vishnu/.Xauthority"
+Restart=always
+ExecStart=/usr/bin/xautolock -locker ~/.scripts/bin/lock_screen -time 5
+
+[Install]
+WantedBy=default.target
+

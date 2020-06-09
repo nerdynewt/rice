@@ -1,0 +1,27 @@
+set font                        "monospace 13"
+set default-bg                  "rgba(16,16,15,0.8)" #00
+set default-fg                  "#aecaab" #01
+set statusbar-fg                "#aecaab" #04
+set statusbar-bg                "rgba(16,16,15,0.8)" #01
+set inputbar-bg                 "rgba(16,16,15,0.8)" #00 currently not used
+set inputbar-fg                 "#aecaab" #02
+set notification-error-bg       "#bf3f34" #08
+set notification-error-fg       "#2B2C2B" #00
+set notification-warning-bg     "#826c5d" #08
+set notification-warning-fg     "#2B2C2B" #00
+set highlight-color             "#202020" #0A
+set highlight-active-color      "#657b83" #0D
+set completion-highlight-fg     "#2B2C2B" #02
+set completion-highlight-bg     "#75507b" #0C
+set completion-bg               "#202020" #02
+set completion-fg               "#28E615" #0C
+set notification-bg             "#2B2C2B" #0B
+set notification-fg             "#4c544f" #00
+set recolor-lightcolor          "rgba(16,16,15,0)" #00
+set recolor-darkcolor           "#aecaab" #06
+set index-fg 			"#aecaab"
+set index-bg			"rgba(16,16,15,0.8)"
+set index-active-fg		"rgba(16,16,15,0.8)"
+set index-active-bg		"#aecaab"
+set recolor                     "true"
+set recolor-keephue             "false"

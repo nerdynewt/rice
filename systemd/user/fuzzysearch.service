@@ -1,0 +1,13 @@
+[Unit]
+Description=Fuzzy finder Search
+PartOf=graphical-session.target
+
+[Service]
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/vishnu/.Xauthority"
+Restart=always
+ExecStart=/bin/termite -t "fuzsearch" -e /bin/zsh -c /home/vishnu/.scripts/bin/search-fzf
+
+[Install]
+WantedBy=default.target
+

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo " $(df -h $PWD | awk '/[0-9]%/{print $(NF-2)}')i"
+#!/bin/bash
+
+# if [[ "$button" == "1" ]]; then
+#         i3-msg exec "nautilus"
+# fi

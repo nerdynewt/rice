@@ -1,0 +1,5 @@
+#!/bin/bash
+
+
+# s=$(cat ~/.tmp/short-internet) && echo " $(($s/60)):$(($s%60))"
+date -d@$(cat ~/.tmp/short-internet) -u +\ %M:%S

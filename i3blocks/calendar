@@ -1,0 +1,16 @@
+#!/bin/bash
+
+case $BLOCK_BUTTON in
+	1) i3-msg exec "termite -t 'force_floating_window' -e calcurse" > /dev/null ;;
+3) if [[ -f ~/.tmp/calendar_hide ]]; then
+	rm ~/.tmp/calendar_hide
+else
+	touch ~/.tmp/calendar_hide
+fi
+;;
+esac
+
+appointment="$(calcurse -n | sed '2q;d' | xargs)" || exit
+[[ -z "$appointment" ]] && exit
+[[ -f ~/.tmp/calendar_hide ]] && echo "" && exit
+[[ "$appointment" < "[01:01]" ]] && echo " $appointment"

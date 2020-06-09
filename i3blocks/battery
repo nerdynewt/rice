@@ -1,0 +1,37 @@
+#!/bin/bash
+
+if [[ "$button" == "1" ]]; then
+	i3-msg exec "termite -t 'force_floating_window' -e 'sudo powertop'" > /dev/null
+fi
+capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+status=$(cat /sys/class/power_supply/BAT0/status)
+remaining="$(acpi | cut -d "," -f3 | cut -d ":" -f1,2 | xargs)"
+BATTINFO="$(acpi)"
+[[ $status == "Charging" ]] && echo " $capacity% ($remaining)" && exit
+
+if [[ $capacity -lt 3 ]]; then
+	dunstify -r 4120 "battery critically low!" "hibernating..." -u critical
+	sleep 50
+	[[ -f ~/.tmp/no_hibernate ]] || systemctl hibernate
+elif [[ $capacity -lt 15 ]]; then
+	icon=
+	color="#ff0000"
+#	dunstify -r 4120 "low battery" "$BATTINFO" -u critical
+elif [[ $capacity -lt 30 ]]; then
+	icon=
+	color="#ff6600"
+elif [[ $capacity -lt 50 ]]; then
+	icon=
+	color="#ffff00"
+elif [[ $capacity -lt 90 ]]; then
+	icon=
+	color="#00cc00"
+else
+	icon=
+	color="#00ff00"
+fi
+
+echo -e "$icon $capacity% ($remaining)\n"
+printf "$color\n"
+
+

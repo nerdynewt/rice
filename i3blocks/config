@@ -1,0 +1,132 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+# Change $SCRIPT_DIR to the location of your scripts!
+command=$SCRIPT_DIR/$BLOCK_NAME
+SCRIPT_DIR=/home/vishnu/.config/i3blocks
+separator_block_width=15
+markup=none
+
+
+
+[load_average]
+label=LOAD
+interval=10
+
+[short_internet]
+# command='s=$(cat ~/.tmp/short-internet) && echo "  $(($s/60)):$(($s%60))"'
+interval=1
+
+[timer]
+# command=date -d@$(cat ~/.tmp/timer) -u +\ %M:%S
+interval=1
+
+
+[calendar]
+interval=60
+
+[media]
+interval=5
+signal=8
+
+[screenwakelock]
+interval=once
+command=[[ $button == 1 ]] && qs -s toggle-screen-timeout; xset q | grep "Off: 0" >/dev/null && echo ""
+signal=12
+
+[dunst2]
+interval=once
+signal=6
+command=[[ -f ~/.tmp/dunst_mute ]] && echo ""
+
+# [dunst]
+# interval=once
+# format=json
+# markup=pango
+#min_width=50
+#align=center
+#DUNST_MUTE=off
+
+[recovery]
+interval=once
+command=[ -f ~/.tmp/backup_disk ] && echo " Backup Disk"
+color="#FF0000"
+
+
+# [backup]
+# interval=10
+# command=[ -f ~/.tmp/backing_up ] && echo " Backup in Progress: $(tail -5 ~/.tmp/backup_progress | grep -Eo '[0-9]{1,4}%' | tail -1 )"
+# color=#ff0000
+
+# [mail]
+# interval=3600
+
+# [temperature]
+# label= 
+# interval=10
+#T_WARN=70
+#T_CRIT=90
+#SENSOR_CHIP=""
+
+[backlight]
+label=☀ 
+interval=20
+#STEP_SIZE=5
+
+[volume]
+interval=once
+signal=10
+
+[wifi]
+signal=10
+interval=60
+
+[diskfree]
+interval=120
+
+# [memusage]
+# interval=10
+
+# [cpu_usage]
+# interval=10
+# LABEL= 
+
+
+[battery]
+interval=60
+signal=9
+
+[date]
+interval=1
+
+# [time]
+# command=$SCRIPT_DIR/time/time
+# interval=1
+# #TZ_FILE=~/.tz
+# STRFTIME_FORMAT=%Y-%m-%d %H:%M
+# TZONES=$DEFAULT_TZ,Brazil/East,Australia/Brisbane,Asia/Calcutta
+# TZ_LABELS=,Brazil,AU,Hyderabad
+

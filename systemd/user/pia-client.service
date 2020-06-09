@@ -1,0 +1,13 @@
+[Unit]
+Description=PIA VPN Client
+PartOf=graphical-session.target
+
+[Service]
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/vishnu/.Xauthority"
+Restart=always
+ExecStart=/opt/piavpn/bin/pia-client
+
+[Install]
+WantedBy=default.target
+

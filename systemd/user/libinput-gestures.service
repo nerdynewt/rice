@@ -1,0 +1,12 @@
+[Unit]
+Description=Libinput Gestures
+PartOf=graphical-session.target
+
+[Service]
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/vishnu/.Xauthority"
+ExecStart=/usr/bin/libinput-gestures
+Restart=always
+
+[Install]
+WantedBy=default.target

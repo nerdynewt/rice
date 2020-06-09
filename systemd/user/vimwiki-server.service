@@ -1,0 +1,13 @@
+[Unit]
+Description=Hosts Vimwiki
+PartOf=graphical-session.target
+
+[Service]
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/vishnu/.Xauthority"
+Restart=always
+ExecStart=/usr/bin/php -S 0.0.0.0:8000 -t /home/vishnu/.vimwiki
+
+[Install]
+WantedBy=default.target
+

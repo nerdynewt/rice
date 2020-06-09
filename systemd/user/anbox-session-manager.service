@@ -1,0 +1,10 @@
+[Unit]
+Description=Anbox Session Manager
+
+[Service]
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/vishnu/.Xauthority"
+ExecStart=/usr/bin/anbox session-manager
+
+[Install]
+WantedBy=default.target

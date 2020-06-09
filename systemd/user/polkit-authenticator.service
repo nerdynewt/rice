@@ -1,0 +1,12 @@
+[Unit]
+Description=Polkit Gnome Authenticator
+PartOf=graphical-session.target
+
+[Service]
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/vishnu/.Xauthority"
+ExecStart=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+Restart=always
+
+[Install]
+WantedBy=default.target

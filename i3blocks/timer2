@@ -1,0 +1,26 @@
+#!/bin/bash
+
+remaining="$(cat ~/.tmp/timer_countdown)" || exit
+
+case "$remaining" in 
+  *00h00m01s*)
+    exit
+    ;;
+esac
+#[[ $(cat ~/.tmp/timer_countdown) == "^M00h00m01s " ]] && exit*/
+
+
+case $BLOCK_BUTTON in
+
+  1) rm ~/.tmp/timer_countdown ;; # right click
+  3) i3-msg exec "termite -t backgroundterminalxyz -e 'timer 25 5 25 5 25 5 25 20'" >/dev/null;; # right click
+  4) $XBACKLIGHT_SET -dec "$STEP_SIZE" ;; # scroll up
+  5) $XBACKLIGHT_SET -inc "$STEP_SIZE" ;; # scroll down, decrease
+esac
+
+
+
+remaining="$(echo $remaining | sed -e 's/h/:/' -e 's/m/:/' -e 's/s//' | cut -d ':' -f2-)"
+
+echo  $remaining
+

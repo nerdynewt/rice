@@ -1,0 +1,15 @@
+set selection-clipboard clipboard
+map b bmark
+umap [normal] f
+umap [fullscreen] f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
+map [normal] l follow
+map [fullscreen] l follow
+toggle_statusbar
+set guioptions ""
+set smooth-scroll true
+map [normal] i recolor
+map [fullscreen] i recolor
+map [normal] BackSpace jumplist
+set scroll-full-overlap 0.1

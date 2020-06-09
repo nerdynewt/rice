@@ -1,0 +1,13 @@
+[Unit]
+Description=Redshift display colour temperature adjustment
+Documentation=http://jonls.dk/redshift/
+After=display-manager.service
+
+[Service]
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/vishnu/.Xauthority"
+ExecStart=/usr/bin/unclutter
+Restart=always
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,1 @@
+[9376:0425/182614.138179:ERROR:buffer_manager.cc(488)] [.DisplayCompositor]GL ERROR :GL_INVALID_OPERATION : glBufferData: <- error from previous GL command

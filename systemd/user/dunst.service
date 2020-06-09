@@ -1,0 +1,16 @@
+[Unit]
+Description=Dunst notification daemon
+Documentation=man:dunst(1)
+PartOf=graphical-session.target
+
+[Service]
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/vishnu/.Xauthority"
+Type=dbus
+BusName=org.freedesktop.Notifications
+Restart=always
+ExecStart=/home/vishnu/.scripts/bin/dunst
+
+[Install]
+WantedBy=default.target
+

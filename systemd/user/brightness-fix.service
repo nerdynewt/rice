@@ -1,0 +1,14 @@
+[Unit]
+Description=Restore Brightness after Suspend
+After=suspend.target
+
+[Service]
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/vishnu/.Xauthority"
+Type=oneshot
+ExecStart=brightnessctl set 300
+TimeoutSec=0
+StandardOutput=syslog
+
+[Install]
+WantedBy=suspend.target

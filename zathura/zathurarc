@@ -1,0 +1,54 @@
+set selection-clipboard clipboard
+toggle_statusbar
+set guioptions ""
+set smooth-scroll true
+set window-title-basename
+set statusbar-home-tilde
+set window-title-page
+set window-icon qpdfview
+set browser brave-beta
+set statusbar-v-padding 15
+set statusbar-h-padding 75
+set font "monospace 16"
+set scroll-full-overlap 0.05
+#set statusbar-h-padding 0
+#set statusbar-v-padding 0
+
+umap [normal] f
+umap [fullscreen] f
+
+# map f feedkeys ":exec i3-msg fullscreen toggle<Return>"
+map f toggle_fullscreen
+map [normal] l follow
+map b feedkeys ":bmark "
+map B feedkeys ":blist<Tab>"
+map [normal] i recolor
+map [normal] BackSpace jumplist
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+map K zoom in
+map J zoom out
+map <C-+> zoom in
+map <C--> zoom out
+map <Right> navigate next
+map <Left> navigate previous
+
+map b [fullscreen] feedkeys ":bmark "
+map [fullscreen] i recolor
+map B [fullscreen] feedkeys ":blist<Tab>"
+map [fullscreen] l follow
+map [fullscreen] <C-+> zoom in
+map [fullscreen] <C--> zoom out
+map [fullscreen] f toggle_fullscreen
+map [fullscreen] u scroll half-up
+map [fullscreen] d scroll half-down
+map [fullscreen] D toggle_page_mode
+map [fullscreen] K zoom in
+map [fullscreen] J zoom out
+map [normal] <C-o> feedkeys ":exec qpdfview $FILE<Return>"
+map [fullscreen] <C-o> feedkeys ":exec qpdfview $FILE<Return>"
+map [fullscreen] <Right> navigate next
+map [fullscreen] <Left> navigate previous
+set recolor-lightcolor "#282828"
+set recolor-darkcolor "#ebdbb2"

@@ -1,0 +1,13 @@
+[Unit]
+Description=Alt tab window switcher
+PartOf=graphical-session.target
+
+[Service]
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/vishnu/.Xauthority"
+Restart=always
+ExecStart=/usr/bin/alttab -d 2 -i 100x100
+
+[Install]
+WantedBy=default.target
+

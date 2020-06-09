@@ -1,0 +1,20 @@
+#!/bin/bash
+
+
+case $BLOCK_BUTTON in
+	1) i3-msg '[title="cmusmusic"] scratchpad show; move position center' > /dev/null ;;
+  3) playerctl play-pause ;; # right click
+  4) playerctl previous ;; # scroll up
+  5) playerctl next ;; # scroll down, decrease
+esac
+
+icon= 
+color="#FFFFFF"
+[[ $(playerctl status) == Paused ]] && color="#888888"
+
+title="$(cmus-remote -Q | grep 'tag title ' | cut -d ' ' -f3- )"
+artist="$(cmus-remote -Q | grep 'tag artist ' | cut -d ' ' -f3- )"
+test -z "$title" && exit
+
+echo -e "$icon $title - $artist\n"
+printf "$color\n"
